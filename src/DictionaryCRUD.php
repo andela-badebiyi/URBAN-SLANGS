@@ -1,4 +1,9 @@
 <?php
+	/*
+	*This class inherits from the dictionary class and contains 
+	*functions that perform CRUD operations on the static array
+	*that holds the enteries
+	*/
 	include "Dictionary.php";
 
 	class DictionaryCRUD extends Dictionary{

@@ -1,4 +1,7 @@
 <?php
+	/**
+	*Tests the DictionaryCRUD class
+	*/
 	class DictionaryCRUDTests extends PHPUnit_Framework_TestCase{
 		//declare dictionary
 		protected $dictionary;

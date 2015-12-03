@@ -1,4 +1,8 @@
 <?php
+	/*
+	*This class contains a group function that helps perform a 
+	*ranking system on a given input
+	*/
 	include "DictionaryCRUD.php";
 
 	class WordManipulate{
