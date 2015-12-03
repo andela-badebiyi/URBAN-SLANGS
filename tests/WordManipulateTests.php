@@ -1,4 +1,7 @@
 <?php
+	/*
+	*Tests to ensure the Ranking system Class works accordingly
+	*/
 	class WordManipulateTests extends PHPUnit_Framework_TestCase{
 		protected $dictionary;
 
