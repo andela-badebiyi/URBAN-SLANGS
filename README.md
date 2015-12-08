@@ -20,8 +20,9 @@ $dictionary->retrieveDefinition("wetin dey");
 //Delete an existing definition
 $dictionary->deleteEntry("wetin dey");
 
-/*Ranking system
-*/returns an associative array of words as keys and frequency of occurrence as values
+/* Ranking system
+*  returns an associative array of words as keys and frequency of occurrence as values
+*/
 WordManipulate::group($dictionary->retrieveSampleSentence("wetin dey"));
 ```
 <h2>Requirements</h2>
