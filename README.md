@@ -1,33 +1,34 @@
-<h1><strong>CHECKPOINT ONE</strong></h1>
+<h1><strong>Checkpoint One</strong></h1>
 <h2>Summary</h2>
-<p>The Src folder contains a package of 3 files that lets you create, read, update and delete urban words from a temporary database. It also includes a ranking system that enables you to group words by the frequency of their occurrence and rank them in descending order based on that frequency </p>
+<p>This project is the first checkpoint for my Andela Simulations. It is a dictionary databse for Urban slangs,you are able to perform CRUD operations on the dictionary database.</p>
+<p>The `/src` directory contains a package of 3 files that lets you create, read, update and delete urban words from a temporary database. It also includes a ranking system that enables you to group words by the frequency of their occurrence and rank them in descending order based on that frequency </p>
 
-<h2><strong>USAGE</strong></h2>
-//create a dictionary instance to begin<br/>
-$dictionary = new DictionaryCRUD();<br/>
-<em>Create a new entry into the databse</em><br/>
-$dictionary->addEntry("wetin dey", "A nigerian slang for 'whats up'", "my padi wetin dey na");<br/><br/>
+<h2><strong>Usage</strong></h2>
+```php
+//create a dictionary instance to begin
+$dictionary = new DictionaryCRUD();
 
-<em>Update an existing entry into the databse</em><br/>
-$dictionary->updateEntry("wetin dey", "A nigerian slang for 'hello'", "hey bro wetin dey");<br/>
-<small>The third argument is optional</small></br></br>
+//Create a new entry into the databse
+$dictionary->addEntry("wetin dey", "A nigerian slang for 'whats up'", "my padi wetin dey na");
 
-<em>Retrieve a definition for a slang that exists in our database</em><br/>
-$dictionary->retrieveDefinition("wetin dey");<br/></br>
+//Update an existing entry into the databse (third argument is optional)
+$dictionary->updateEntry("wetin dey", "A nigerian slang for 'hello'", "hey bro wetin dey");
 
-<em>Delete an existing definition</em><br/>
-$dictionary->deleteEntry("wetin dey");<br/><br/>
+//Retrieve a definition for a slang that exists in our database
+$dictionary->retrieveDefinition("wetin dey");
 
-<em>Ranking system</em><br/>
-WordManipulate::group($dictionary->retrieveSampleSentence("wetin dey"));<br/>
-returns an associative array of words as keys and frequency of occurrence as values<br/><br/>
+//Delete an existing definition
+$dictionary->deleteEntry("wetin dey");
 
+/*Ranking system
+*/returns an associative array of words as keys and frequency of occurrence as values
+WordManipulate::group($dictionary->retrieveSampleSentence("wetin dey"));
+```
 <h2>Requirements</h2>
 <ul>
-<li>A server that has php installed</li>
-<li>Php unit installed on your machine</li>
+<li><a href="http://php.net/releases/5_4_0.php">PHP</a></li>
+<li><a href="https://phpunit.de/">PHPUnit</a></li>
 </ul>
 
 <h2>Testing</h2>
-<p>Redirect to the root folder and in your terminal run "phpunit --bootstrap &lt path to class file&gt &ltpath to corresponding test file&gt"</p>
-e.g "phpunit --bootstrap src/Dictionary.php tests/DictionaryTests.php"
+<p>Move to the root directory and in your terminal run `phpunit --bootstrap <path to class file> <path to corresponding test file>` `phpunit --bootstrap src/Dictionary.php tests/DictionaryTests.php` <p>
