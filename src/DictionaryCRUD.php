@@ -1,99 +1,164 @@
 <?php
-	/*
-	*This class inherits from the dictionary class and contains 
-	*functions that perform CRUD operations on the static array
-	*that holds the enteries
-	*/
-	include "Dictionary.php";
+/**
+ * Performs CRUD Operations on Dictionary database.
+ *
+ * This class extends the Dictionary class and it allows you to perform Create, Read
+ * Update and Delete operations on each entry in our database
+ *
+ * @author Adebiyi Bodunde
+ */
+namespace bd;
 
-	class DictionaryCRUD extends Dictionary{
-		
-		public function addEntry($slang, $desc, $sample){
-			if(!$this->entryExists($slang)){
-				$input = $this->constructAssocArray($slang, $desc, $sample);
-				parent::$data[] = $input;	
-			}
-			else{
-				echo "This entry already exists, please try again";
-			}
-			
-		} 
+class DictionaryCRUD extends Dictionary
+{
+    public function __construct(){
+        Dictionary::$data = array();
+    }
+    /**
+    * Adds a new urban slang into the dictionary.
+    *
+    * @param String $slang The urban slang to be stored
+    * @param String $desc The description of the slang
+    * @param String $sample A sample sentence that shows how the slang can be used
+    */
 
-		public function deleteEntry($entry){
-			if($this->entryExists($entry)){
-				$entryIndex = $this->getEntryIndex($entry);
-				unset(parent::$data[$entryIndex]);
-			}
-			else{
-				echo "Can't delete: This entry doesn't exist";
-			}
-		}
+    public function addEntry($slang, $desc, $sample)
+    {
+        if (!$this->entryExists($slang)) {
+            $input = $this->constructAssocArray($slang, $desc, $sample);
+            parent::$data[] = $input;
+        } else {
+            throw new \Exception("Entry already exists", 1);
+        }
+    }
 
-		public function retrieveDefinition($entry){
-			if($this->entryExists($entry)){
-				$entryIndex = $this->getEntryIndex($entry);
-				return parent::$data[$entryIndex]["description"];
-			}
-			else{
-				return "Entry not found";
-			}
-		}
+    /**
+     * Deletes an urban slang from the dictionary
+     *
+     * @param String $entry Urban slang that is to be deleted
+     * @throws Exception if entry you are trying to delete doesn't exist in the database
+     */
 
-		public function updateEntry($slang, $desc=null, $sample=null){
-			if($this->entryExists($slang)){
-				$entryIndex = $this->getEntryIndex($slang);
-				parent::$data[$entryIndex]["slang"] = $slang;
-				if($desc !== null){
-					parent::$data[$entryIndex]["description"] = $desc;
-				}
-				if($sample !== null){
-					parent::$data[$entryIndex]["sample-sentence"] = $sample;
-				}
-				
-			}
-			else{
-				return "Record not found";
-			}
-		}
+    public function deleteEntry($entry)
+    {
+        if ($this->entryExists($entry)) {
+            $entryIndex = $this->getEntryIndex($entry);
+            unset(parent::$data[$entryIndex]);
+        } else {
+            throw new \Exception("Cannot delete", 2);
+        }
+    }
 
+    /**
+     * Retrieves the definition of an urban slang from the dictionary
+     *
+     * @param String $entry Urban slang whose definition is to be retrieved
+     * @throws Exception if entry definition you are trying to retrieve doesn't exist in the database
+     */
 
-		public function retrieveSampleSentence($entry){
-			if($this->entryExists($entry)){
-				$entryIndex = $this->getEntryIndex($entry);
-				return parent::$data[$entryIndex]["sample-sentence"];
-			}
-			else{
-				return "Entry not found";
-			}
-		}
+    public function retrieveDefinition($entry)
+    {
+        if ($this->entryExists($entry)) {
+            $entryIndex = $this->getEntryIndex($entry);
+            return parent::$data[$entryIndex]["description"];
+        } else {
+            throw new \Exception("Entry doesn't exist", 3);
+        }
+    }
 
-		/***********************************
-		/*Private class functions go here
-		/*
-		***********************************/
+    /**
+     * Updates an urban slang in the dictionary
+     *
+     * @param String $slang The urban slang to be updated
+     * @param String $desc The description of the slang
+     * @param String $sample A sample sentence that shows how the slang can be used
+     * @throws Exception if entry you are trying to update doesn't exist in the database
+     */
 
-		private function constructAssocArray($word, $desc, $sample){
-			return array("slang" => $word, 
-				"description" => $desc, 
-				"sample-sentence" => $sample);
-		}
+    public function updateEntry($slang, $desc = null, $sample = null)
+    {
+        if ($this->entryExists($slang)) {
+            $entryIndex = $this->getEntryIndex($slang);
+            parent::$data[$entryIndex]["slang"] = $slang;
 
-		private function getEntryIndex($entry){
-			for($i = 0; $i < count(parent::$data); $i++){
-				if(parent::$data[$i]["slang"] == $entry){
-					return $i;
-				}
-			}
-			return -1;
-		}
+            if ($desc !== null) {
+                parent::$data[$entryIndex]["description"] = $desc;
+            }
 
-		private function entryExists($entry){
-			for($i = 0; $i < count(parent::$data); $i++){
-				if(parent::$data[$i]["slang"] == $entry){
-					return true;
-				}
-			}
-			return false;
-		}
-	}
-?>
+            if ($sample !== null) {
+                parent::$data[$entryIndex]["sample-sentence"] = $sample;
+            }
+
+        } else {
+            throw new \Exception("Entry doesn't exist", 3);
+        }
+    }
+
+    /**
+     * Retrieves a sample sentence for the urban slang
+     *
+     * @param String $entry Slang whose definition we want to retrieve
+     * @return String returns the sample sentence of the entry
+     * @throws Exception if entry sample sentence you are trying to retrive doesn't exist in the database
+     */
+
+    public function retrieveSampleSentence($entry)
+    {
+        if ($this->entryExists($entry)) {
+            $entryIndex = $this->getEntryIndex($entry);
+            return parent::$data[$entryIndex]["sample-sentence"];
+        } else {
+            throw new \Exception("Entry doesn't exist", 3);
+        }
+    }
+
+    /**
+    * @param String $slang The urban slang to be stored
+    * @param String $desc The description of the slang
+    * @param String $sample A sample sentence that shows how the slang can be used
+    * @return array[] returns an associative array
+    */
+
+    private function constructAssocArray($word, $desc, $sample)
+    {
+        return array(
+            "slang" => $word,
+            "description" => $desc,
+            "sample-sentence" => $sample,
+            );
+    }
+
+    /**
+    * @param String $entry the urban slang whose index we are searching for
+    * @return int returns the index of the entry in the array or -1 if not found
+    */
+
+    private function getEntryIndex($entry)
+    {
+        for ($i = 0; $i < count(parent::$data); $i++) {
+            if (parent::$data[$i]["slang"] == $entry) {
+                return $i;
+            }
+        }
+
+        return -1;
+    }
+
+    /**
+    * Checks if an urban slang exists in my database
+    *
+    * @param String $entry the urban slang we are searching for
+    * @return boolean returns either true if entry exists and false if it doesnt
+    */
+
+    private function entryExists($entry)
+    {
+        for ($i = 0; $i < count(parent::$data); $i++) {
+            if (parent::$data[$i]["slang"] == $entry) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+}

@@ -1,0 +1,7 @@
+preset: recommended
+
+linting: true
+
+finder:
+  exclude:
+    - "tests"

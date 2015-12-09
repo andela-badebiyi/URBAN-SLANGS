@@ -1,0 +1,9 @@
+machine:
+  php:
+    version: 5.5.9
+
+test:
+  override:
+     - phpunit --bootstrap src/Dictionary.php tests/DictionaryTests.php
+     - phpunit --bootstrap src/DictionaryCRUD.php tests/DictionaryCRUDTests.php
+     - phpunit --bootstrap src/WordManipulate.php tests/WordManipulateTests.php
