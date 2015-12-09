@@ -1,3 +1,4 @@
+[![StyleCI](https://styleci.io/repos/47273090/shield)](https://styleci.io/repos/47273090)
 <h1><strong>Checkpoint One</strong></h1>
 <h2>Summary</h2>
 <p>This project is the first checkpoint for my Andela Simulations. It is a dictionary databse for Urban slangs,you are able to perform CRUD operations on the dictionary database.</p>
