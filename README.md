@@ -32,8 +32,8 @@ WordManipulate::group($dictionary->retrieveSampleSentence("wetin dey"));
 ```
 ##Requirements
 
-* [PHP]("http://php.net/releases/5_4_0.php")
-* [PHPUnit]("https://phpunit.de/")
+* [PHP](http://php.net/releases/5_4_0.php)
+* [PHPUnit](https://phpunit.de/)
 
 ##Testing
 Move to the root directory and in your terminal run `phpunit --bootstrap <path to class file> <path to corresponding test file>` e.g `phpunit --bootstrap src/Dictionary.php tests/DictionaryTests.php`
