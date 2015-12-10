@@ -228,7 +228,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6",
+                "php": ">=5.5.11",
                 "phpunit/php-file-iterator": "~1.3",
                 "phpunit/php-text-template": "~1.2",
                 "phpunit/php-token-stream": "~1.3",
@@ -474,7 +474,7 @@
                 "ext-reflection": "*",
                 "ext-spl": "*",
                 "myclabs/deep-copy": "~1.3",
-                "php": ">=5.6",
+                "php": ">=5.5.11",
                 "phpspec/prophecy": "^1.3.1",
                 "phpunit/php-code-coverage": "~3.0",
                 "phpunit/php-file-iterator": "~1.4",
@@ -543,7 +543,7 @@
             },
             "require": {
                 "doctrine/instantiator": "^1.0.2",
-                "php": ">=5.6",
+                "php": ">=5.5.11",
                 "phpunit/php-text-template": "~1.2",
                 "sebastian/exporter": "~1.2"
             },
@@ -934,7 +934,7 @@
                 "shasum": ""
             },
             "require": {
-                "php": ">=5.6.0"
+                "php": ">=5.5.11"
             },
             "type": "library",
             "extra": {
