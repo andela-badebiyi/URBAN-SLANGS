@@ -1,7 +1,7 @@
 [![StyleCI](https://styleci.io/repos/47273090/shield)](https://styleci.io/repos/47273090)
 [![Circle CI](https://circleci.com/gh/andela-badebiyi/checkpoint_one.svg?style=svg)](https://circleci.com/gh/andela-badebiyi/checkpoint_one)
 
-#Checkpoint One
+#URBAN SLANGS
 ##Summary
 This project is the first checkpoint for my Andela Simulations. It is a dictionary databse for Urban slangs,you are able to perform CRUD operations on the dictionary database.
 
