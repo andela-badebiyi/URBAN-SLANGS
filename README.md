@@ -1,9 +1,8 @@
 [![StyleCI](https://styleci.io/repos/47273090/shield)](https://styleci.io/repos/47273090)
-[![Circle CI](https://circleci.com/gh/andela-badebiyi/checkpoint_one.svg?style=svg)](https://circleci.com/gh/andela-badebiyi/checkpoint_one)
 
 #URBAN SLANGS
 ##Summary
-This project is the first checkpoint for my Andela Simulations. It is a dictionary databse for Urban slangs,you are able to perform CRUD operations on the dictionary database.
+This project is a dictionary database for Urban slangs,you are able to perform CRUD operations on the dictionary database.
 
 The `src` directory contains a package of 3 files that lets you create, read, update and delete urban words from a temporary database. It also includes a ranking system that enables you to group words by the frequency of their occurrence and rank them in descending order based on that frequency.
 
